@@ -1,135 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <title>E-commerce Website</title>
 
     <style>
+      body {
+        background-color: white;
+        color: black;
+        transition: background-color 0.3s, color 0.3s;
+      }
       nav {
-        background-color: aquamarine;
+        background-color: white;
       }
       .one-edge-shadow {
         box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
       }
-      .display-8 {
-        font-weight: 200;
-        font-size: 30px;
-        font-colour: $teal-200;
+      .dark-mode {
+        background-color: darkgray;
+        color: white;
+      }
+      .dark-mode nav {
+        background-color: darkgray;
       }
     </style>
   </head>
-
   <body>
-    <!-- navbar -->
-
-    <nav
-      class="one-edge-shadow navbar navbar-light sticky-top navbar navbar-expand-lg text-white"
-    >
+    <nav class="one-edge-shadow navbar navbar-light sticky-top navbar navbar-expand-lg text-white">
       <a class="navbar-brand ms-3 text-dark" href="/">
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-          crossorigin="anonymous"
-        />
-
-        <img
-          src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png"
-          style="width:50px;height:50px,color:text-light;"
-        />E-Commerce</a
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+        <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" style="width:50px;height:50px;" />
+        E-Commerce
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/store" >Store <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="/store">Store <span class="sr-only">(current)</span></a>
           </li>
         </ul>
 
         <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" href="/cart"
-              >Cart
-              <span class="badge badge-success"
-                >{{request.session.cart.keys|length}}</span
-              >
-              <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="/cart">Cart <span class="badge badge-success">{{request.session.cart.keys|length}}</span></a>
           </li>
-
           {% if request.session.customer %}
-
-          <li class="nav-item active">
-            <a class="nav-link" href="/orders"
-              >Orders<span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/logout"
-              >Logout<span class="sr-only">(current)</span></a
-            >
-          </li>
+          <li class="nav-item active"><a class="nav-link" href="/orders">Orders</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/logout">Logout</a></li>
           {% else %}
-
-          <li class="nav-item active">
-            <a class="nav-link" href="/signup"
-              >Signup<span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/login"
-              >Login<span class="sr-only">(current)</span></a
-            >
-          </li>
+          <li class="nav-item active"><a class="nav-link" href="/signup">Signup</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/login">Login</a></li>
           {% endif %}
         </ul>
       </div>
+      <!-- <button id="theme-toggle" class="btn btn-outline-dark ml-3">
+        <i class="fas fa-moon"></i>
+      </button> -->
     </nav>
-    <!---->
     {% block content %}{% endblock %}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    <!-- <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        } else {
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        }
+      });
+    </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
   </body>
 </html>
