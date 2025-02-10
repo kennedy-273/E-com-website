@@ -1,42 +1,80 @@
+# E-Commerce Website
 
-### E-Commerce Website
+This is a Django-based e-commerce website that allows users to browse products, add them to their cart, and place orders.
 
-  
+## Table of Contents
 
-- These instructions will help you set up and run the project on your local machine.
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-  
+## Features
 
-### MUST HAVE
+- User authentication (signup, login, logout)
+- Browse products by category
+- Add products to the cart
+- View cart and checkout
+- View order history
 
-	     . Python
+## Requirements
 
-	     .Django
+- Python 3.8 or higher
+- Django 3.1.7
+- SQLite (default database)
 
-  
-###  INSTALLATION
+## Installation
 
-  
+1. Clone the repository:
 
-- Git clone https://github.com/kennedy-ben/E-com-website.git
+    ```sh
+    git clone https://github.com/kennedy-ben/E-com-website.git
+    cd E-com-website
+    ```
 
-  
+2. Create a virtual environment and activate it:
 
-- Naviagete to the directory
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-  
+3. Install the dependencies:
 
-- Cd   Project Name
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-  
+4. Apply the migrations:
 
-- Install dependacies  pip install -r requirements.txt
+    ```sh
+    python manage.py migrate
+    ```
 
-  
+5. Create a superuser to access the admin panel:
 
-- Run the app to start a localhost  python manage.py runserver 
+    ```sh
+    python manage.py createsuperuser
+    ```
 
-  
-  
+6. Run the development server:
 
-- This will start the development server and you can view your project at http://127.0.0.1:8000/
+    ```sh
+    python manage.py runserver
+    ```
+
+7. Open your browser and go to `http://127.0.0.1:8000/` to view the website.
+
+## Usage
+
+- **Homepage**: Browse all products and filter by category.
+- **Signup/Login**: Create an account or log in to an existing account.
+- **Cart**: Add products to the cart and view the cart.
+- **Checkout**: Enter address and phone number to place an order.
+- **Orders**: View order history.
+
+
+
